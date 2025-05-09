@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <!-- embed font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- style css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>NutriPlaner</title>
+  </head>
+  <body>
+    <p></p>
+    <!-- ==========================HEADER=================== -->
+    <header class="header fixed">
+      <div class="container">
+        <div class="header__body">
+          <!-- Logo -->
+          <a href="#!"
+            ><img
+              src="./assets/img/logo.svg"
+              alt="NutriPlanerLogo"
+              class="header__body--logo"
+          /></a>
+          <!-- Action -->
+          <div class="header-navbartop">
+            <div class="header-navbartop__search">
+              <img
+                src="./assets/img/search_icon.svg"
+                alt="searchicon"
+                class="header-navbartop__search--searchicon"
+              />
+              <input
+                type="text"
+                placeholder="SEARCH"
+                class="header-navbartop__search--searchinput"
+              />
+            </div>
+            <nav class="header-navbarbottom">
+              <ul class="header-navbarbottom__list">
+                <li>
+                  <a class="header-navbarbottom__item active" href="#!"
+                    >HOMEPAGE</a
+                  >
+                </li>
+                <li>
+                  <a class="header-navbarbottom__item" href="#!">MEAL TYPE</a>
+                </li>
+                <li>
+                  <a class="header-navbarbottom__item" href="#!">DISHES</a>
+                </li>
+                <li>
+                  <a class="header-navbarbottom__item" href="#!"
+                    >NUTRITION CALCULATOR</a
+                  >
+                </li>
+                <li>
+                  <a class="header-navbarbottom__item" href="#!">CONTACT US</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Account -->
+          <div class="header__account">
+            <img
+              src="./assets/img/ava_user.jpg"
+              alt=""
+              class="header__acount--ava"
+            />
+            <span class="header__acount--name">HUY PHÙNG</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================MAIN=================== -->
+    <main>
+      <div class="main-banner">
+        <h1 class="main-banner__name">HOME PAGE</h1>
+        <div class="main-banner__content container">
+          <h2 class="main-banner__content--title">
+            Welcome to Nutrition Planner!
+          </h2>
+          <p class="main-banner__content--desc">
+            Nutrition Planner helps you create a healthy diet, optimize
+            nutrition, and achieve your health goals. Whether you're looking to
+            lose weight, build muscle, or maintain your health, we provide
+            personalized meal plans and tailored nutrition advice.
+          </p>
+        </div>
+      </div>
+      <!-- ========================MEAL TYPE===================== -->
+      <section class="main-choose container">
+        <h2 class="main-choose-title">CHOOSE YOUR MEAL TYPE</h2>
+        <div class="main-choose-list">
+          <!-- BREAKFAST -->
+          <div class="main-choose__item">
+            <a href="#!"
+              ><img
+                src="./assets/img/breakfast.jpg"
+                alt="breakfast"
+                class="main-choose__item--thumb"
+            /></a>
+            <div class="main-choose__item--overlay"></div>
+            <p class="main-choose__item--name">BREAKFAST</p>
+          </div>
+
+          <!-- LUNCH -->
+          <div class="main-choose__item">
+            <a href="#!"
+              ><img
+                src="./assets/img/lunch.jpg"
+                alt="lunch"
+                class="main-choose__item--thumb"
+            /></a>
+            <div class="main-choose__item--overlay"></div>
+            <p class="main-choose__item--name">LUNCH</p>
+          </div>
+
+          <!-- DINNER -->
+          <div class="main-choose__item">
+            <a href="#!"
+              ><img
+                src="./assets/img/dinner.jpg"
+                alt="dinner"
+                class="main-choose__item--thumb"
+            /></a>
+            <div class="main-choose__item--overlay"></div>
+            <p class="main-choose__item--name">DINNER</p>
+          </div>
+
+          <!-- SMOTHIES -->
+          <div class="main-choose__item">
+            <a href="#!"
+              ><img
+                src="./assets/img/Smoothies.jpg"
+                alt="smoothies"
+                class="main-choose__item--thumb"
+            /></a>
+            <div class="main-choose__item--overlay"></div>
+            <p class="main-choose__item--name">SMOTHIES</p>
+          </div>
+
+          <!-- SNACKS -->
+          <div class="main-choose__item">
+            <a href="#!"
+              ><img
+                src="./assets/img/snack.jpg"
+                alt="snack"
+                class="main-choose__item--thumb"
+            /></a>
+            <div class="main-choose__item--overlay"></div>
+            <p class="main-choose__item--name">SNACK</p>
+          </div>
+        </div>
+      </section>
+      <!-- ==========================CONTENT2=================== -->
+      <section class="main-choosetype container">
+        <h2 class="main-choosetype-title">
+          CHOOSE THE DISH YOU ARE INTERESTED IN
+        </h2>
+        <!-- FILTER -->
+        <div class="main-choosetype-filter">
+          <ul class="main-choosetype-filter--list">
+            <li>
+              <a class="main-choosetype-filter__item active" href="#!">ALL</a>
+            </li>
+            <li>
+              <a class="main-choosetype-filter__item" href="#!">BY CALORIES</a>
+            </li>
+            <li>
+              <a class="main-choosetype-filter__item" href="#!">BY DIET</a>
+            </li>
+            <li>
+              <a class="main-choosetype-filter__item" href="#!">BY MEAL TYPE</a>
+            </li>
+            <li>
+              <a class="main-choosetype-filter__item" href="#!">BY ALLERGENS</a>
+            </li>
+          </ul>
+        </div>
+        <div class="main-dishmenu">
+          <!-- DISH LIST 1-->
+          <div class="main-dishmenu-list container">
+            <!-- DISH 1 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+            <!-- DISH 2 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+            <!-- DISH 3 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+            <!-- DISH 4 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+          </div>
+          <div class="line-paginate"></div>
+
+          <!-- DISH LIST 2-->
+          <div class="main-dishmenu-list container">
+            <!-- DISH 1 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+            <!-- DISH 2 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+            <!-- DISH 3 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+            <!-- DISH 4 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <img
+                    src="/assets/img/save.svg"
+                    alt="save_img"
+                    class="dish__card-function--favorite"
+                  />
+                  <img
+                    src="/assets/img/love.svg"
+                    alt="favorite_img"
+                    class="dish__card-function--love"
+                  />
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page pagination -->
+        <div class="main-pagination">
+          <ul class="main-pagelist">
+            <li><a class="main-pageitem active" href="#!">1</a></li>
+            <li><a class="main-pageitem" href="#!">2</a></li>
+            <li><a class="main-pageitem" href="#!">3</a></li>
+            <li><a class="main-pageitem" href="#!">4</a></li>
+          </ul>
+        </div>
+      </section>
+      <!-- ===========================FEEDBACK===================================== -->
+      <section class="feedbackform">
+        <h2 class="feedbackform__header">FEEDBACK FORM</h2>
+        <div class="feedbackform__body">
+          <div class="container feedbackform__content">
+            <!-- KHối ảnh bên trái -->
+            <div class="feedbackform__img">
+              <img
+                src="./assets/img/feedback_image.png"
+                alt="feedback"
+                class="feedbackform__img--thumb"
+              />
+            </div>
+            <!-- KHối form bên phải -->
+            <div class="feedbackform__form">
+              <form action="#!">
+                <!-- NAME -->
+                <div class="feedbackform__formname">
+                  <p class="feedbackform__formname--label">Name*</p>
+                  <input
+                    class="feedbackform__formname--area"
+                    type="text"
+                    required
+                  />
+                </div>
+                <!-- EMAIL -->
+                <div class="feedbackform__formemail">
+                  <p class="feedbackform__formname--label">Email Address *</p>
+                  <input
+                    class="feedbackform__formname--area"
+                    type="text"
+                    required
+                  />
+                </div>
+                <!-- Phonenumber -->
+                <div class="feedbackform__formphone">
+                  <p class="feedbackform__formname--label">Phone Number</p>
+                  <input
+                    class="feedbackform__formname--area"
+                    type="tel"
+                    name="phone"
+                    pattern="[0-9]{10}"
+                    required
+                  />
+                </div>
+                <!-- MESSAGE -->
+                <div class="feedbackform__formmessage">
+                  <p class="feedbackform__formname--label">Message*</p>
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="5"
+                    cols="50"
+                    class="feedbackform__formname--area"
+                    required
+                  ></textarea>
+                </div>
+                <div class="feedbackform__formrate">
+                  <p class="feedbackform__formname--label">Rating</p>
+                  <span></span><span></span><span></span><span></span
+                  ><span></span>
+                </div>
+                <button type="submit" class="feedbackform__btnsubmit">
+                  SEND MESSAGE
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="container footer">
+      <div class="footer__logo">
+        <a href="#!"
+          ><img
+            src="./assets/img/logo.svg"
+            alt="logo"
+            class="footer__logo--thumb"
+        /></a>
+      </div>
+      <p class="footer__title">&#169; 2025 NUTRITION PLANNER</p>
+      <div class="footer__content">
+        <p class="footer__content--desc">TERM</p>
+        <p class="footer__content--desc">PRIVACY</p>
+        <p class="footer__content--desc">COOKIES</p>
+      </div>
+    </footer>
+  </body>
+</html>
