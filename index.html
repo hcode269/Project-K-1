@@ -27,7 +27,7 @@
       <div class="container">
         <div class="header__body">
           <!-- Logo -->
-          <a href="#!"
+          <a href="./index.html"
             ><img
               src="./assets/img/logo.svg"
               alt="NutriPlanerLogo"
@@ -44,31 +44,33 @@
               <input
                 type="text"
                 placeholder="SEARCH"
+                id="searchInput"
                 class="header-navbartop__search--searchinput"
               />
             </div>
             <nav class="header-navbarbottom">
               <ul class="header-navbarbottom__list">
                 <li>
-                  <a class="header-navbarbottom__item active" href="#!"
+                  <a
+                    class="header-navbarbottom__item active"
+                    href="./index.html"
                     >HOMEPAGE</a
                   >
                 </li>
                 <li>
-                  <a class="header-navbarbottom__item" href="#mealtype"
-                    >MEAL TYPE</a
+                  <a class="header-navbarbottom__item" href="./dishes.html"
+                    >DISHES</a
                   >
                 </li>
                 <li>
-                  <a class="header-navbarbottom__item" href="#!">DISHES</a>
-                </li>
-                <li>
-                  <a class="header-navbarbottom__item" href="#!"
-                    >NUTRITION CALCULATOR</a
+                  <a class="header-navbarbottom__item" href="./calculator.html"
+                    >CALCULATOR</a
                   >
                 </li>
                 <li>
-                  <a class="header-navbarbottom__item" href="#!">CONTACT US</a>
+                  <a class="header-navbarbottom__item" href="./contact_us.html"
+                    >CONTACT US</a
+                  >
                 </li>
               </ul>
             </nav>
@@ -77,10 +79,14 @@
           <div class="header__account">
             <img
               src="./assets/img/ava_user.jpg"
-              alt=""
+              alt="account"
+              id="accountAvatar"
               class="header__acount--ava"
             />
             <span class="header__acount--name">HUY PHÙNG</span>
+            <div class="account-dropdown" id="accountDropdown">
+              <button class="account-dropdown__logout">Logout</button>
+            </div>
           </div>
         </div>
       </div>
@@ -88,7 +94,7 @@
 
     <!-- ==========================MAIN=================== -->
     <main>
-      <div class="main-banner">
+      <div class="main-banner homepage-img">
         <h1 class="main-banner__name">HOME PAGE</h1>
         <div class="main-banner__content container">
           <h2 class="main-banner__content--title">
@@ -192,8 +198,8 @@
             </li>
           </ul>
         </div>
+        <!-- Menu các món ăn -->
         <div class="main-dishmenu">
-          <!-- DISH LIST 1-->
           <div class="main-dishmenu-list container">
             <!-- DISH 1 -->
             <div class="main-dishmenu-item">
@@ -214,15 +220,17 @@
                 </div>
               </div>
               <div class="dish__card-info">
-                <a href="#!" class="dish__card-info--name"
-                  >THỊT XÀO CHUA NGỌT</a
-                >
+                <a href="#!" class="dish__card-info--name">FISH MẺ</a>
                 <div class="dish__card-info--desc">Calories: 50g</div>
                 <div class="dish__card-tag">
                   <span class="dish__card-tag--tag1">Vegan</span>
                   <span class="dish__card-tag--tag2">Gluten - Free</span>
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
               </div>
             </div>
             <!-- DISH 2 -->
@@ -244,15 +252,17 @@
                 </div>
               </div>
               <div class="dish__card-info">
-                <a href="#!" class="dish__card-info--name"
-                  >THỊT XÀO CHUA NGỌT</a
-                >
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
                 <div class="dish__card-info--desc">Calories: 50g</div>
                 <div class="dish__card-tag">
                   <span class="dish__card-tag--tag1">Vegan</span>
                   <span class="dish__card-tag--tag2">Gluten - Free</span>
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
               </div>
             </div>
             <!-- DISH 3 -->
@@ -274,9 +284,7 @@
                 </div>
               </div>
               <div class="dish__card-info">
-                <a href="#!" class="dish__card-info--name"
-                  >THỊT XÀO CHUA NGỌT</a
-                >
+                <a href="#!" class="dish__card-info--name">RAU SẮN</a>
                 <div class="dish__card-info--desc">Calories: 50g</div>
                 <div class="dish__card-tag">
                   <span class="dish__card-tag--tag1">Vegan</span>
@@ -284,8 +292,12 @@
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
               </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
             </div>
-            <!-- DISH 4 -->
+            <!-- DISH 4  -->
             <div class="main-dishmenu-item">
               <div class="dish__card">
                 <img
@@ -314,13 +326,109 @@
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
               </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
             </div>
-          </div>
-          <div class="line-paginate"></div>
 
-          <!-- DISH LIST 2-->
-          <div class="main-dishmenu-list container">
-            <!-- DISH 1 -->
+            <!-- DISH 5 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 6 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 7 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 8  -->
             <div class="main-dishmenu-item">
               <div class="dish__card">
                 <img
@@ -349,8 +457,108 @@
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
               </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
             </div>
-            <!-- DISH 2 -->
+            <!-- DISH 9 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO 1</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 10 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 11 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 12  -->
             <div class="main-dishmenu-item">
               <div class="dish__card">
                 <img
@@ -379,8 +587,109 @@
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
               </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
             </div>
-            <!-- DISH 3 -->
+
+            <!-- DISH 13 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 14 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 15 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 16  -->
             <div class="main-dishmenu-item">
               <div class="dish__card">
                 <img
@@ -409,8 +718,108 @@
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
               </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
             </div>
-            <!-- DISH 4 -->
+            <!-- DISH 17 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 18 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 19 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN édad</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 20  -->
             <div class="main-dishmenu-item">
               <div class="dish__card">
                 <img
@@ -438,6 +847,402 @@
                   <span class="dish__card-tag--tag2">Gluten - Free</span>
                 </div>
                 <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+
+            <!-- DISH 21 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 22 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 23 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 24  -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 25 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 26 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 27 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN ádasdfas</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 28  -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+
+            <!-- DISH 29 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">FISH KHO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, dứa, nước mắm
+              </div>
+            </div>
+            <!-- DISH 30 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">BÊ CHAO</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt, lá hẹ, Bê
+              </div>
+            </div>
+            <!-- DISH 31 -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name">RAU SẮN</a>
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
+              </div>
+            </div>
+            <!-- DISH 32  -->
+            <div class="main-dishmenu-item">
+              <div class="dish__card">
+                <img
+                  src="./assets/img/dish1.png"
+                  alt="dish_img"
+                  class="dish__card--thumb"
+                />
+                <div class="dish__card-function">
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
+                </div>
+              </div>
+              <div class="dish__card-info">
+                <a href="#!" class="dish__card-info--name"
+                  >THỊT XÀO CHUA NGỌT</a
+                >
+                <div class="dish__card-info--desc">Calories: 50g</div>
+                <div class="dish__card-tag">
+                  <span class="dish__card-tag--tag1">Vegan</span>
+                  <span class="dish__card-tag--tag2">Gluten - Free</span>
+                </div>
+                <button class="dish__card--btn">VIEW MORE</button>
+              </div>
+              <!-- Thêm vào khi tìm kiếm món ăn -->
+              <div class="dish__ingredients" style="display: none">
+                thịt lợn, canh, rau sắn
               </div>
             </div>
           </div>
@@ -446,10 +1251,7 @@
         <!-- Page pagination -->
         <div class="main-pagination">
           <ul class="main-pagelist">
-            <li><a class="main-pageitem active" href="#!">1</a></li>
-            <li><a class="main-pageitem" href="#!">2</a></li>
-            <li><a class="main-pageitem" href="#!">3</a></li>
-            <li><a class="main-pageitem" href="#!">4</a></li>
+            <!-- Nút trang sẽ được thêm tự động bằng JS -->
           </ul>
         </div>
       </section>

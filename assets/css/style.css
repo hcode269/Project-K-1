@@ -105,21 +105,23 @@ a {
 
 .header-navbarbottom__item:hover {
   color: black;
-  text-shadow: 2 0 px currentColor;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+  text-shadow: 2 0 1px currentColor;
+  transition: all 2s ease-in-out;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 .header-navbarbottom__item.active {
   color: black;
-  text-shadow: 2 0 px currentColor;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+  text-shadow: 2 0 1px currentColor;
+  transition: all 2s ease-in-out;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
 .header__account {
   margin-left: 48px;
+  display: flex;
+  align-items: baseline;
 }
 
 .header__acount--ava {
@@ -133,18 +135,45 @@ a {
 .header__acount--name {
   color: var(--secondary-color);
 }
-
+.account-dropdown {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  background-color: white;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none;
+  z-index: 1001;
+}
+.account-dropdown__logout:hover {
+  background-color: #3a6d1f;
+}
 /* ====================================MAIN================================== */
 
 .main-banner {
   padding-top: 0;
-  background-image: url(../img/banner1.png);
+
   height: 500px;
   width: 100vw;
   background-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.main-banner.homepage-img {
+  background-image: url(../img/banner_homepage.png);
+}
+
+.main-banner.dishes-img {
+  background-image: url(../img/banner_dishes.jpg);
+}
+.main-banner.calculator-img {
+  background-image: url(../img/banner_calculator.jpg);
+}
+.main-banner.contact-img {
+  background-image: url(../img/banner_contact.jpg);
 }
 
 .main-banner__name {
@@ -289,14 +318,19 @@ a {
 /* ================================DISH DETAILS=========================================== */
 .main-dishmenu-list {
   display: flex;
-  justify-content: space-between;
-  width: 1140px;
+  flex-wrap: wrap;
+  gap: 67px;
+  justify-content: start;
+  max-width: 1140px;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-.main-dishitem {
-  border-radius: 20px;
+.main-dishmenu-item {
+  max-width: 233px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .dish__card {
@@ -351,6 +385,10 @@ a {
   align-items: center;
 }
 .dish__card-info--name {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 2rem;
   font-weight: var(--font-weight-bold);
   color: var(--secondary-color);
@@ -904,11 +942,16 @@ footer {
 
 /* ==================================MEAL INFOMATION =========================== */
 .header__acount--admin {
-  color: #fff;
+  color: var(--primary-color);
+}
+
+.header__acount--admin {
   width: 37px;
   height: 37px;
-  object-fit: cover;
-  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  /* flex-shrink: 0; */
+  object-fit: cover;
+  cursor: pointer;
 }
