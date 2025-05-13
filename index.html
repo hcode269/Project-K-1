@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Nhúng thư viện Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <!-- reset css -->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <!-- embed font -->
@@ -17,7 +22,6 @@
     <title>NutriPlaner</title>
   </head>
   <body>
-    <p></p>
     <!-- ==========================HEADER=================== -->
     <header class="header fixed">
       <div class="container">
@@ -51,7 +55,9 @@
                   >
                 </li>
                 <li>
-                  <a class="header-navbarbottom__item" href="#!">MEAL TYPE</a>
+                  <a class="header-navbarbottom__item" href="#mealtype"
+                    >MEAL TYPE</a
+                  >
                 </li>
                 <li>
                   <a class="header-navbarbottom__item" href="#!">DISHES</a>
@@ -99,7 +105,7 @@
       <!-- ========================MEAL TYPE===================== -->
       <section class="main-choose container">
         <h2 class="main-choose-title">CHOOSE YOUR MEAL TYPE</h2>
-        <div class="main-choose-list">
+        <div class="main-choose-list" id="mealtype">
           <!-- BREAKFAST -->
           <div class="main-choose__item">
             <a href="#!"
@@ -198,16 +204,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--save fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-heart fa-xl active"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -231,16 +234,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -264,16 +264,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -297,16 +294,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -335,16 +329,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -368,16 +359,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -401,16 +389,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -434,16 +419,13 @@
                   class="dish__card--thumb"
                 />
                 <div class="dish__card-function">
-                  <img
-                    src="/assets/img/save.svg"
-                    alt="save_img"
-                    class="dish__card-function--favorite"
-                  />
-                  <img
-                    src="/assets/img/love.svg"
-                    alt="favorite_img"
-                    class="dish__card-function--love"
-                  />
+                  <i
+                    class="dish__card-function--favorite fa-solid fa-bookmark fa-xl active"
+                  ></i>
+
+                  <i
+                    class="dish__card-function--love fa-solid fa-heart fa-xl"
+                  ></i>
                 </div>
               </div>
               <div class="dish__card-info">
@@ -530,8 +512,13 @@
                 </div>
                 <div class="feedbackform__formrate">
                   <p class="feedbackform__formname--label">Rating</p>
-                  <span></span><span></span><span></span><span></span
-                  ><span></span>
+                  <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                  </div>
                 </div>
                 <button type="submit" class="feedbackform__btnsubmit">
                   SEND MESSAGE
@@ -559,5 +546,6 @@
         <p class="footer__content--desc">COOKIES</p>
       </div>
     </footer>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>

@@ -127,6 +127,7 @@ a {
   height: 37px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .header__acount--name {
@@ -277,6 +278,7 @@ a {
 .main-choosetype-filter__item:hover {
   background-color: var(--primary-color);
   color: #fff;
+  scale: 1.05;
   transition: all 0.2s ease-in-out;
 }
 .main-choosetype-filter__item.active {
@@ -305,6 +307,7 @@ a {
   width: 233px;
   height: 202px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .dish__card--thumb:hover {
@@ -321,6 +324,24 @@ a {
   display: flex;
   align-items: center;
   gap: 144px;
+}
+.dish__card-function--save,
+.dish__card-function--favorite {
+  cursor: pointer;
+}
+
+.fa-bookmark,
+.fa-heart {
+  color: #fff;
+}
+.fa-bookmark:hover,
+.fa-heart:hover {
+  scale: 1.2;
+  transition: all 0.2s ease-in-out;
+}
+.fa-bookmark.active,
+.fa-heart.active {
+  color: var(--primary-color);
 }
 
 .dish__card-info {
@@ -387,7 +408,7 @@ a {
   width: 1010px;
   height: 2px;
   background-color: var(--primary-color);
-  margin: auto;
+  margin: 0 auto;
 }
 /* =======================PAGE PAGINATION====================================== */
 .main-pagination {
@@ -489,6 +510,30 @@ a {
   border-color: none;
   background-color: white;
   border-radius: 5px;
+}
+
+.feedbackform__formrate {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.star-rating {
+  direction: ltr;
+  font-size: 30px;
+  unicode-bidi: bidi-override;
+  display: inline-block;
+}
+
+.star {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star.hover,
+.star.selected {
+  color: gold;
 }
 
 /* =================================FOOTER==================================== */
@@ -649,12 +694,221 @@ footer {
 /* ======================= END LOGIN  & CREATE ACCOUNT===================================== */
 
 /* ======================= DISHES===================================== */
-/* Khoảng cách line so với banner */
-main .line-main.range {
+.dish-info {
+  margin-top: 34px;
+  margin-bottom: 34px;
+}
+.info-header {
+  width: 1140px;
+  height: 90px;
+  background-color: var(--primary-color);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-header__title {
+  font-size: 3.5rem;
+  line-height: 4.2rem;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+}
+
+.info-content {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+}
+
+.box-content1 {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.info-content__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-content__img--thumb {
+  width: 362px;
+  height: 362px;
+  border-radius: 50%;
+}
+
+.box-content2 {
+  grid-row: 1/3;
+  grid-column: 2/3;
+}
+
+.info-content__recipe {
+  margin-left: 170px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  height: 100%;
+}
+
+.content__recipe--header {
+  padding-top: 20px;
+  padding-left: 33px;
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 3.4rem;
+  color: #fff;
+}
+.content__recipe--line {
+  margin-left: 33px;
+  margin-top: 20px;
+  width: 432px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #fff;
+}
+.content__recipe--info {
+  margin: 12px 33px 12px;
+  color: #fff;
+  white-space: pre-wrap;
+  line-height: 2.4rem;
+  height: 550px;
+  overflow-y: scroll;
+}
+.box-content3 {
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+.info-content__nutrition {
+  border: 1px solid var(--primary-color);
+  border-radius: 30px;
+}
+
+.nutrition-header__title {
+  margin-top: 16px;
+  margin-left: 17px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.content__nutrition--info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 19px 21px 17px;
+}
+
+.nutrition-lineinfo {
+  display: flex;
+  justify-content: space-between;
+}
+.nutrition-lineinfo__name,
+.nutrition-lineinfo__value {
+  color: var(--primary-color);
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: var(--font-weight);
+}
+
+.content-tag {
+  margin-top: 46px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.content-tag__title {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: var(--font-weight-bold);
+}
+.content-tag__card {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 99px;
+  cursor: pointer;
+}
+
+/* ======================= CONTACT US===================================== */
+.line-paginate.margin__value {
   margin-top: 37px;
 }
-/* main .main-content-dish {
-  margin-top: 34px;
-  background-color: var(--primary-color);
-  text-align: center;
-} */
+
+.contact-content__title {
+  padding-top: 46px;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+.contact-content__desc {
+  padding-top: 31px;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  line-height: 2.7rem;
+}
+
+.contact-infolist {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__item.item-1 {
+  width: 14.47%;
+}
+.contact__item.item-2 {
+  width: 23.68%;
+}
+.contact__item.item-3 {
+  width: 19.56%;
+}
+.contact__item.item-4 {
+  width: 14.47%;
+}
+.contact__item--title {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.contact__item--desc {
+  color: var(--primary-color);
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: var(--font-weight);
+}
+.contact__item--icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__item--icon .fa-brands {
+  display: inline-block;
+  color: var(--primary-color);
+}
+.contact-map {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.contact-map__title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: var(--font-weight);
+}
+
+/* ==================================MEAL INFOMATION =========================== */
+.header__acount--admin {
+  color: #fff;
+  width: 37px;
+  height: 37px;
+  object-fit: cover;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  /* flex-shrink: 0; */
+}
