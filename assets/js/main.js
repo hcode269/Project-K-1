@@ -29,24 +29,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updatePagination(totalItems, currentPage) {
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-    paginationContainer.innerHTML = ""; // clear old pages
+    console.log(paginationContainer);
+    if (paginationContainer !== null && paginationContainer !== undefined) {
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      paginationContainer.innerHTML = ""; // clear old pages
 
-    for (let i = 1; i <= totalPages; i++) {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.className = "main-pageitem" + (i === currentPage ? " active" : "");
-      a.href = "#!";
-      a.dataset.page = i;
-      a.textContent = i;
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.className = "main-pageitem" + (i === currentPage ? " active" : "");
+        a.href = "#!";
+        a.dataset.page = i;
+        a.textContent = i;
 
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        showPage(parseInt(this.dataset.page), filteredItems);
-      });
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          showPage(parseInt(this.dataset.page), filteredItems);
+        });
 
-      li.appendChild(a);
-      paginationContainer.appendChild(li);
+        li.appendChild(a);
+        paginationContainer.appendChild(li);
+      }
     }
   }
 
@@ -96,22 +99,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Ẩn dropdown nếu click ngoài vùng
   document.addEventListener("click", (e) => {
-    if (!avatar.contains(e.target) && !dropdown.contains(e.target)) {
+    const isInsideAvatar = avatar.contains(e.target);
+    const isInsideDropdown = dropdown.contains(e.target);
+
+    // Nếu KHÔNG click vào avatar và KHÔNG click vào dropdown => ẩn dropdown
+    if (!isInsideAvatar && !isInsideDropdown) {
       dropdown.style.display = "none";
     }
   });
 
-  // Xử lý logout
+  // =========================LOGOUT POPUP==============================
   const logoutBtn = document.querySelector(".account-dropdown__logout");
 
-  logoutBtn.addEventListener("click", () => {
-    const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất không?");
+  // Tạo popup xác nhận logout
+  const popup = document.createElement("div");
+  popup.className = "logout-popup";
+  popup.innerHTML = `
+    <div class="logout-popup__box">
+      <p class="logout-popup__text">Do you want to log out of your account?</p>
+      <div class="logout-popup__actions">
+        <button class="popup-confirm">Yes</button>
+        <button class="popup-cancel">No</button>
+      </div>
+    </div>
+  `;
+  popup.style.display = "none";
+  document.body.appendChild(popup);
 
-    if (confirmLogout) {
-      // Thực hiện hành động đăng xuất tại đây
-      // Ví dụ: chuyển hướng sang trang đăng nhập
-      window.location.href = "./login.html";
-    }
+  logoutBtn.addEventListener("click", () => {
+    popup.style.display = "flex";
+  });
+
+  popup.querySelector(".popup-cancel").addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  popup.querySelector(".popup-confirm").addEventListener("click", () => {
+    popup.style.display = "none";
+    window.location.href = "./login.html";
+  });
+});
+
+// =========================FAVORITE FUNCTION_ SAVE FUNCTION =====================
+document.addEventListener("DOMContentLoaded", () => {
+  const saveIcons = document.querySelectorAll(".dish__card-function--save");
+  const favoriteIcons = document.querySelectorAll(
+    ".dish__card-function--favorite"
+  );
+
+  saveIcons.forEach((icon) => {
+    icon.addEventListener("click", function () {
+      this.classList.toggle("active");
+    });
+  });
+
+  favoriteIcons.forEach((icon) => {
+    icon.addEventListener("click", function () {
+      this.classList.toggle("active");
+    });
   });
 });
 // =========================RATING================================

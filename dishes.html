@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Nhúng thư viện Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <!-- reset css -->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <!-- embed font -->
@@ -22,7 +27,7 @@
       <div class="container">
         <div class="header__body">
           <!-- Logo -->
-          <a href="#!"
+          <a href="./index.html"
             ><img
               src="./assets/img/logo.svg"
               alt="NutriPlanerLogo"
@@ -74,10 +79,24 @@
           <div class="header__account">
             <img
               src="./assets/img/ava_user.jpg"
-              alt=""
+              alt="account"
+              id="accountAvatar"
               class="header__acount--ava"
             />
             <span class="header__acount--name">HUY PHÙNG</span>
+            <div class="account-dropdown" id="accountDropdown">
+              <div class="account-dropdown__box">
+                <button class="account-dropdown__logout">
+                  <span class="logout-text">Logout</span>
+                  <span class="logout-icon-initial"
+                    ><i class="fa-solid fa-arrow-right"></i
+                  ></span>
+                  <span class="logout-icon-final"
+                    ><i class="fa-solid fa-arrow-right"></i
+                  ></span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -117,7 +136,9 @@
           </div>
           <div class="box-content2">
             <div class="info-content__recipe">
-              <div class="content__recipe--header">Các Bước Chế Biến</div>
+              <div class="content__recipe--header">
+                Ingredients and Processing Steps
+              </div>
               <div class="content__recipe--line"></div>
               <pre class="content__recipe--info">
   Bước 1: Chuẩn bị nguyên liệu
@@ -181,6 +202,21 @@
           </div>
         </div>
       </section>
+      <!-- Pagination Controls -->
+      <div class="main-pagination-dish">
+        <ul class="main-pagelist-dish">
+          <li>
+            <a class="main-pageitem main-page-prev" href="#!" data-nav="prev">
+              <i class="fa-solid fa-angle-left fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="main-pageitem main-page-next" href="#!" data-nav="next">
+              <i class="fa-solid fa-angle-right fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </main>
     <!-- FOOTER -->
     <footer class="container footer">

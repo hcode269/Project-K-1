@@ -79,10 +79,24 @@
           <div class="header__account">
             <img
               src="./assets/img/ava_user.jpg"
-              alt=""
+              alt="account"
+              id="accountAvatar"
               class="header__acount--ava"
             />
             <span class="header__acount--name">HUY PHÙNG</span>
+            <div class="account-dropdown" id="accountDropdown">
+              <div class="account-dropdown__box">
+                <button class="account-dropdown__logout">
+                  <span class="logout-text">Logout</span>
+                  <span class="logout-icon-initial"
+                    ><i class="fa-solid fa-arrow-right"></i
+                  ></span>
+                  <span class="logout-icon-final"
+                    ><i class="fa-solid fa-arrow-right"></i
+                  ></span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -141,7 +155,7 @@
       <section class="contact-map container">
         <h3 class="contact-map__title">Our Central Location:</h3>
         <iframe
-          src="https://www.google.com/maps?q=21.003140890913752, 105.85038621748575&z=20&output=embed"
+          src="https://www.google.com/maps?q=21.003140890913752, 105.85038621748575&z=15&output=embed"
           width="1140"
           height="450"
           style="border: 0"

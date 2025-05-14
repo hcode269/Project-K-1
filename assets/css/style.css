@@ -135,28 +135,180 @@ a {
 .header__acount--name {
   color: var(--secondary-color);
 }
+
+/* ========================ACCOUNT LOGOUT================================ */
+.header__account {
+  position: relative;
+}
+
+/* dropdown tách riêng, không đè lên chữ */
 .account-dropdown {
   position: absolute;
-  top: 70px;
-  right: 40px;
-  background-color: white;
-  border: 1px solid var(--secondary-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  top: calc(100% + 20px); /* nằm dưới avatar 8px */
+  left: 0;
+  z-index: 1000;
+  background-color: transparent;
+  padding: 0;
   display: none;
-  z-index: 1001;
 }
+.account-dropdown__box {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+}
+
+.account-dropdown__logout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  padding: 12px 48px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  min-width: calc(130px + 48px);
+}
+
+/* Text luôn ở giữa */
+.logout-text {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+/* Icon gốc di chuyển và biến mất */
+.logout-icon-initial {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+/* Icon mới xuất hiện trong vòng tròn */
+.logout-icon-final {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.5s ease;
+  z-index: 3;
+  opacity: 0;
+}
+
+/* Overlay sáng lướt qua nút */
+.account-dropdown__logout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 120%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: skewX(-20deg);
+  transition: left 0.4s ease;
+  pointer-events: none;
+}
+
 .account-dropdown__logout:hover {
-  background-color: #3a6d1f;
+  background: linear-gradient(135deg, #a5d6a7, #c8e6c9);
 }
+
+.account-dropdown__logout:hover::before {
+  left: 100%;
+}
+
+.account-dropdown__logout:hover .logout-icon-initial {
+  transform: translate(100%, -50%);
+  opacity: 0;
+}
+
+.account-dropdown__logout:hover .logout-icon-final {
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+}
+
+/* ====================POPUP LOGOUT========================= */
+.logout-popup {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-popup__box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+}
+
+.logout-popup__text {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.logout-popup__actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logout-popup__actions button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.logout-popup__actions button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
 /* ====================================MAIN================================== */
 
 .main-banner {
   padding-top: 0;
 
   height: 500px;
-  width: 100vw;
+  width: 100%;
   background-size: 100%;
   display: flex;
   flex-direction: column;
@@ -221,7 +373,7 @@ a {
   line-height: 3.1rem;
   padding-top: 25px;
 }
-/* Filter */
+/* =================================Filter===================================== */
 .filter-box {
   margin-top: 20px;
   display: flex;
@@ -239,7 +391,7 @@ a {
 .filter-box select {
   color: var(--primary-color);
   padding: 8px 12px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid var(--primary-color);
 }
 
@@ -473,7 +625,7 @@ a {
 
 .feedbackform__formname--area {
   outline: none;
-  border-color: none;
+  /* border-color: none; */
   background-color: white;
   border-radius: 5px;
 }
@@ -500,6 +652,58 @@ a {
 .star.hover,
 .star.selected {
   color: gold;
+}
+/* =================================CONFIRM POPUP==================================== */
+.feedback-popup {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-popup__box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+}
+
+.feedback-popup__text {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.feedback-popup__actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feedback-popup__actions button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  transition: all 0.3s ease;
+}
+
+.feedback-popup__actions button:hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 /* =================================FOOTER==================================== */
@@ -638,6 +842,7 @@ footer {
   color: #fff;
   font-size: 25px;
   font-weight: var(--font-weight-bold);
+  cursor: pointer;
 }
 .redirect {
   margin-top: 165px;
@@ -797,6 +1002,39 @@ footer {
   cursor: pointer;
 }
 
+.main-pagelist-dish {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.main-page-prev,
+.main-page-next {
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+.main-page-prev .fa-angle-left,
+.main-page-next .fa-angle-right {
+  color: var(--primary-color);
+}
+.main-page-prev .fa-angle-left:hover,
+.main-page-next .fa-angle-right:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+  padding: 0 5px;
+}
+
+.main-page-prev.disabled,
+.main-page-next.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
 /* ======================= CONTACT US===================================== */
 .line-paginate.margin__value {
   margin-top: 37px;

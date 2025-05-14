@@ -85,7 +85,17 @@
             />
             <span class="header__acount--name">HUY PHÙNG</span>
             <div class="account-dropdown" id="accountDropdown">
-              <button class="account-dropdown__logout">Logout</button>
+              <div class="account-dropdown__box">
+                <button class="account-dropdown__logout">
+                  <span class="logout-text">Logout</span>
+                  <span class="logout-icon-initial"
+                    ><i class="fa-solid fa-arrow-right"></i
+                  ></span>
+                  <span class="logout-icon-final"
+                    ><i class="fa-solid fa-arrow-right"></i
+                  ></span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1186,7 +1196,6 @@
                     type="tel"
                     name="phone"
                     pattern="[0-9]{10}"
-                    required
                   />
                 </div>
                 <!-- MESSAGE -->
@@ -1239,5 +1248,6 @@
     </footer>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/filter_advanced.js"></script>
+    <script src="./assets/js/feedbackform_logic.js"></script>
   </body>
 </html>
