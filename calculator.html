@@ -83,7 +83,7 @@
               id="accountAvatar"
               class="header__acount--ava"
             />
-            <span class="header__acount--name">HUY PHÙNG</span>
+            <div class="header__acount--name">HUY PHÙNG</div>
             <div class="account-dropdown" id="accountDropdown">
               <div class="account-dropdown__box">
                 <button class="account-dropdown__logout">
@@ -104,18 +104,113 @@
 
     <!-- ==========================MAIN=================== -->
     <main>
-      <div class="main-banner dishes-img">
+      <div class="main-banner calculator-img">
         <h1 class="main-banner__name">CALCULATOR</h1>
         <div class="main-banner__content container">
           <h2 class="main-banner__content--title">
             Welcome to Nutrition Planner!
           </h2>
           <p class="main-banner__content--desc">
-            Nutrition Planner helps you create a healthy diet, optimize
-            nutrition, and achieve your health goals. Whether you're looking to
-            lose weight, build muscle, or maintain your health, we provide
-            personalized meal plans and tailored nutrition advice.
+            Discover the power of personalized nutrition with our nutrition
+            calculator. <br />
+            Track your intake, analyze your diet, and optimize your nutrition to
+            reach your health and fitness goals.
           </p>
+        </div>
+      </div>
+
+      <!-- =========================TABLE========================== -->
+      <div class="line-paginate mt"></div>
+      <div class="container">
+        <div class="calculator__table">
+          <ul class="calculator__toprow">
+            <li class="col-1">STT</li>
+            <li class="col-2">INGREDIENT</li>
+            <li class="col-3">QUANTITY (g)</li>
+          </ul>
+
+          <div class="caculator-infowrap">
+            <ul class="calculator__row">
+              <li class="col-1">1</li>
+              <li class="col-2">
+                <select class="ingredient-select">
+                  <option value="Rau Muống">Rau Muống</option>
+                  <option value="Đu Đủ">Đu Đủ</option>
+                  <option value="Hạt Sen">Hạt Sen</option>
+                  <option value="Ingridient 4">Ingridient 4</option>
+                </select>
+              </li>
+              <li class="col-3">
+                <span class="col-3__value">200</span>
+                <i class="fa-solid fa-circle-minus delete-icon fa-2x"></i>
+              </li>
+            </ul>
+            <ul class="calculator__row">
+              <li class="col-1">1</li>
+              <li class="col-2">
+                <select class="ingredient-select">
+                  <option value="Rau Muống">Rau Muống</option>
+                  <option value="Đu Đủ">Đu Đủ</option>
+                  <option value="Hạt Sen">Hạt Sen</option>
+                  <option value="Ingridient 4">Ingridient 4</option>
+                </select>
+              </li>
+              <li class="col-3">
+                <span class="col-3__value">200</span>
+                <i class="fa-solid fa-circle-minus delete-icon fa-2x"></i>
+              </li>
+            </ul>
+            <ul class="calculator__row">
+              <li class="col-1">1</li>
+              <li class="col-2">
+                <select class="ingredient-select">
+                  <option value="Rau Muống">Rau Muống</option>
+                  <option value="Đu Đủ">Đu Đủ</option>
+                  <option value="Hạt Sen">Hạt Sen</option>
+                  <option value="Ingridient 4">Ingridient 4</option>
+                </select>
+              </li>
+              <li class="col-3">
+                <span class="col-3__value">200</span>
+                <i class="fa-solid fa-circle-minus delete-icon fa-2x"></i>
+              </li>
+            </ul>
+
+            <!-- Add item button -->
+            <button class="calculator__add-btn">
+              <div class="border-fa-plus">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+              <span class="add-btn__text">Add Item</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- ================================RESULT=========================== -->
+      <div class="container">
+        <div class="calculator__result">
+          <div class="result-box">
+            <h3 class="result-box--title">Total Nutrition Facts</h3>
+            <div class="box-title__line-under"></div>
+            <ul class="result-box-content">
+              <li class="result-box-content__row">
+                <span class="result-box--nutri">Calories:</span>
+                <span class="result-box--value" id="total-calo">200</span>
+              </li>
+              <li class="result-box-content__row">
+                <span class="result-box--nutri">Protein:</span>
+                <span class="result-box--value" id="total-carb">200</span>
+              </li>
+              <li class="result-box-content__row">
+                <span class="result-box--nutri">Fats:</span>
+                <span class="result-box--value" id="total-protein">200</span>
+              </li>
+              <li class="result-box-content__row">
+                <span class="result-box--nutri">Carb:</span>
+                <span class="result-box--value" id="total-all">200</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
@@ -138,5 +233,7 @@
       </div>
     </footer>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/additem.js"></script>
+    <script src="./assets/js/delitem.js"></script>
   </body>
 </html>

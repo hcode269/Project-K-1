@@ -6,6 +6,7 @@
   --primary-color: #4c8b26;
   --secondary-color: #686868;
   --third-color: rgba(76, 139, 38, 0.5);
+  --fouth-color: #d9d9d9;
   --font-weight: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
@@ -121,7 +122,10 @@ a {
 .header__account {
   margin-left: 48px;
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 150px;
 }
 
 .header__acount--ava {
@@ -130,10 +134,18 @@ a {
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+  align-self: center;
 }
 
 .header__acount--name {
   color: var(--secondary-color);
+  align-self: center;
+  text-align: center;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 /* ========================ACCOUNT LOGOUT================================ */
@@ -944,6 +956,25 @@ footer {
   height: 550px;
   overflow-y: scroll;
 }
+/* ---------------------------------Thiết lập scroll bar------------------------- */
+.content__recipe--info::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 50px;
+}
+.content__recipe--info::-webkit-scrollbar-track {
+  background: #fff;
+  opacity: 0.4;
+}
+
+.content__recipe--info::-webkit-scrollbar-thumb {
+  background: var(--fouth-color);
+  border-radius: 10px;
+}
+.content__recipe--info::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+/* ------------------------------------------------------------------------------ */
+
 .box-content3 {
   grid-row: 2/3;
   grid-column: 1/2;
@@ -1120,4 +1151,208 @@ footer {
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+}
+/* =================================CALCULATOR PAGE================================= */
+.line-paginate.mt {
+  margin-top: 34px;
+}
+.calculator__table {
+  position: relative;
+  margin-top: 34px;
+  height: 481px;
+  border-radius: 40px;
+  border: 2px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.calculator__toprow {
+  position: absolute;
+  top: 24px;
+  width: 1020px;
+  height: 62px;
+  border-radius: 30px;
+  background-color: var(--fouth-color);
+  display: flex;
+  flex-shrink: 0;
+  z-index: 50;
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+
+.caculator-infowrap {
+  margin-top: 110px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: scroll;
+  padding: 0 30px 0 40px;
+}
+/* ---------------------Thiết lập scroll bar---------------------------- */
+.caculator-infowrap::-webkit-scrollbar {
+  width: 8px; /* Với cuộn dọc */
+  border-radius: 50px;
+}
+.caculator-infowrap::-webkit-scrollbar-track {
+  background: #fff;
+  opacity: 0.4;
+}
+
+.caculator-infowrap::-webkit-scrollbar-thumb {
+  background: var(--fouth-color);
+  border-radius: 10px;
+}
+.caculator-infowrap::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+/* ------------------------------------------------------------------------- */
+
+.calculator__row,
+.calculator__add-btn {
+  width: 1020px;
+  height: 62px;
+  border-radius: 30px;
+  background-color: var(--fouth-color);
+  /* margin-top: 24px; */
+  display: flex;
+  flex-shrink: 0;
+}
+
+.calculator__row {
+  color: var(--primary-color);
+  font-weight: var(--font-weight);
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+}
+li.col-1 {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid var(--primary-color);
+}
+
+li.col-2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid var(--primary-color);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 20px;
+}
+li.col-3 {
+  position: relative;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 20px;
+}
+.col-3__value {
+  position: absolute;
+  width: 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 10px; /* sát mép phải */
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.calculator__add-btn {
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  gap: 25px;
+  border: none;
+}
+
+.border-fa-plus {
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  display: flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.border-fa-plus > .fa-plus {
+  color: var(--primary-color);
+}
+.add-btn__text {
+  color: var(--primary-color);
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+}
+
+.calculator__result {
+  margin-top: 27px;
+  margin-bottom: 27px;
+  height: 347px;
+  width: 1140px;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result-box {
+  margin: 35px auto 35px;
+  display: flex;
+  width: 991px;
+  height: 278;
+  flex-direction: column;
+  color: #fff;
+}
+
+.result-box--title {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.box-title__line-under {
+  margin-top: 9px;
+  background-color: #fff;
+  width: 432px;
+  height: 2px;
+  border-radius: 1px;
+}
+.result-box-content {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 27px;
+}
+
+.result-box-content__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.result-box--nutri,
+.result-box--value {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
 }

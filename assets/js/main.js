@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updatePagination(totalItems, currentPage) {
-    console.log(paginationContainer);
     if (paginationContainer !== null && paginationContainer !== undefined) {
       const totalPages = Math.ceil(totalItems / itemsPerPage);
       paginationContainer.innerHTML = ""; // clear old pages
