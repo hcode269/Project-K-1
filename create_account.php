@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO users (email, displayName, passwordHash, userAvatar, isAdmin)
                        VALUES (?, ?, ?, ?, 0)");
     $stmt->execute([$email, $displayName, $passwordHash, $avatarPath]);
-    header("Location: login.php"); // Chuyển hướng đến trang đăng nhập sau khi tạo tài khoản thành công
+    header("Location: login.php?success=1"); // Chuyển hướng đến trang đăng nhập sau khi tạo tài khoản thành công
     exit;
   }
 }
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             alt="logo" />
         </div>
         <p class="box-content__header">Create Account</p>
-        <form action="create_account.php" method="POST" enctype="multipart/form-data">
+        <form class="signUpForm" action="create_account.php" method="POST" enctype="multipart/form-data">
           <div class="box-email">
             <input
               class="box-email__input"
@@ -123,6 +123,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               type="password"
               placeholder="Password" />
           </div>
+          <!-- Hiển thị strength-bar -->
+          <div class="password-strength" id="password-strength">
+            <div class="strength-bar">
+              <div class="strength-level" id="level-1"></div>
+              <div class="strength-level" id="level-2"></div>
+              <div class="strength-level" id="level-3"></div>
+            </div>
+            <p class="strength-text" id="strength-text"></p>
+            <p class="strength-message" id="strength-message"></p>
+          </div>
+          <!-- ------------------------ -->
 
           <div class="box-password">
             <input
@@ -141,9 +152,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <span><a class="redirect__link" href="./login.php">Sign In</a></span>
         </div>
       </div>
-
     </div>
   </div>
+
   <script src="./assets/js/form-validation.js"></script>
 </body>
 
