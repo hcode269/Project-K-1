@@ -1,4 +1,7 @@
-<?php ?>
+<?php
+session_start();
+require_once 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,11 +88,11 @@
         <!-- Account -->
         <div class="header__account">
           <img
-            src="./assets/img/ava_user.jpg"
+            src="<?php echo htmlspecialchars($_SESSION['userAvatar']); ?>"
             alt="account"
             id="accountAvatar"
             class="header__acount--ava" />
-          <div class="header__acount--name">HUY PHÙNG</div>
+          <div class="header__acount--name"><?php echo htmlspecialchars($_SESSION['displayName']); ?></div>
           <div class="account-dropdown" id="accountDropdown">
             <div class="account-dropdown__box">
               <button class="account-dropdown__logout">

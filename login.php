@@ -1,27 +1,30 @@
 <?php
+session_start();
 require_once 'config.php';
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $email = htmlspecialchars(trim($_POST['email'] ?? ''), ENT_QUOTES, 'UTF-8');
+  $email = trim($_POST['email'] ?? '');
   $password = $_POST['password'] ?? '';
 
+  if ($email && $password) {
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-  $stmt->execute([$email]);
-  $user = $stmt->fetch();
-
-  if ($user && password_verify($password, $user['passwordHash'])) {
-    // Đăng nhập thành công
-    session_start();
-    $_SESSION['user_id'] = $user['id'];
-    header("Location: index.php");
-    exit;
-  } else {
-    $error = "The email or password you entered doesn't match our records. Please double-check and try again";
+    if ($user && password_verify($password, $user['passwordHash'])) {
+      $_SESSION['user_id'] = $user['userId'];
+      $_SESSION['displayName'] = $user['displayName'];
+      $_SESSION['email'] = $user['email'];
+      $_SESSION['userAvatar'] = $user['userAvatar'];
+      $_SESSION['isAdmin'] = $user['isAdmin'] ?? 0;
+      header("Location: index.php?login=success&userid=" . $user['userId']);
+      exit;
+    } else {
+      $error = "The email or password you entered doesn't match our records. Please double-check and try again.";
+    }
   }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,27 +76,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <p class="box-content__header">Login Account</p>
 
-        <?php if (!empty($errors['email'])): ?>
-          <div class="notice-error show" id="php-email-error">
+        <?php if (!empty($error)): ?>
+          <div class="notice-error show" id="php-login-error">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-            </svg><?= $errors[''] ?>
+            </svg><span class="error-text"><?= $error ?></span>
           </div>
         <?php endif; ?>
 
-        <form class="signInForm" action="index.php" method="POST" enctype="multipart/form-data">
+        <form class="signInForm" action="login.php" method="POST" enctype="multipart/form-data">
           <div class="box-email">
             <input
               class="box-email__input"
               type="text"
+              name="email"
               placeholder="Email Address" />
           </div>
 
 
-          <div class="box-passwordlogin">
+          <div class="box-password">
             <input
               class="box-password__input"
               type="password"
+              name="password"
               placeholder="Password" />
             <!-- SVG mắt mở -->
             <svg class="icon-eye show-password" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

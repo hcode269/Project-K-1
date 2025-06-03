@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 10:04 AM
+-- Generation Time: Jun 02, 2025 at 05:55 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `allergen`
+--
+
+CREATE TABLE `allergen` (
+  `allergenId` int(11) NOT NULL,
+  `allergenName` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `allergen`
+--
+
+INSERT INTO `allergen` (`allergenId`, `allergenName`) VALUES
+(1, 'Not Dairy'),
+(2, 'Not Gluten'),
+(3, 'Not Nuts'),
+(4, 'Not Soy');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -37,11 +58,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`categoryId`, `categoryName`) VALUES
-(1, 'breakfast'),
-(2, 'lunch'),
-(3, 'dinner'),
-(4, 'snacks'),
-(5, 'smoothies');
+(1, 'Breakfast'),
+(2, 'Lunch'),
+(3, 'Dinner'),
+(4, 'Snacks'),
+(5, 'Smoothies');
 
 -- --------------------------------------------------------
 
@@ -74,10 +95,12 @@ INSERT INTO `categorydish` (`categoryId`, `dishId`) VALUES
 (1, 21),
 (1, 24),
 (2, 5),
+(2, 8),
 (2, 17),
 (2, 23),
 (2, 24),
 (2, 28),
+(2, 31),
 (3, 12),
 (3, 16),
 (3, 18),
@@ -86,6 +109,7 @@ INSERT INTO `categorydish` (`categoryId`, `dishId`) VALUES
 (3, 21),
 (3, 25),
 (3, 26),
+(3, 31),
 (3, 32),
 (4, 1),
 (4, 11),
@@ -104,6 +128,75 @@ INSERT INTO `categorydish` (`categoryId`, `dishId`) VALUES
 (5, 28),
 (5, 29),
 (5, 30);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dishallergen`
+--
+
+CREATE TABLE `dishallergen` (
+  `dishId` int(11) NOT NULL,
+  `allergenId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dishallergen`
+--
+
+INSERT INTO `dishallergen` (`dishId`, `allergenId`) VALUES
+(1, 1),
+(1, 3),
+(2, 2),
+(2, 4),
+(3, 1),
+(4, 2),
+(4, 3),
+(5, 1),
+(5, 4),
+(6, 2),
+(7, 3),
+(7, 4),
+(8, 1),
+(8, 2),
+(9, 4),
+(10, 1),
+(10, 3),
+(10, 4),
+(11, 2),
+(12, 1),
+(12, 4),
+(13, 2),
+(13, 3),
+(14, 1),
+(15, 3),
+(15, 4),
+(16, 1),
+(16, 2),
+(17, 4),
+(18, 2),
+(19, 1),
+(19, 3),
+(20, 4),
+(21, 1),
+(21, 2),
+(21, 3),
+(22, 2),
+(23, 4),
+(24, 1),
+(24, 4),
+(25, 2),
+(25, 3),
+(26, 1),
+(26, 2),
+(27, 3),
+(28, 4),
+(29, 2),
+(29, 3),
+(30, 1),
+(31, 3),
+(31, 4),
+(32, 2);
 
 -- --------------------------------------------------------
 
@@ -372,17 +465,17 @@ CREATE TABLE `feedback` (
 CREATE TABLE `ingredients` (
   `ingredientId` int(11) NOT NULL,
   `ingredientName` varchar(200) NOT NULL,
-  `caloriePerUnit` float DEFAULT NULL,
-  `proteinPerUnit` float DEFAULT NULL,
-  `fatPerUnit` float DEFAULT NULL,
-  `carbPerUnit` float DEFAULT NULL
+  `caloriesPer100g` float DEFAULT NULL,
+  `proteinPer100g` float DEFAULT NULL,
+  `fatPer100g` float DEFAULT NULL,
+  `carbPer100g` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ingredients`
 --
 
-INSERT INTO `ingredients` (`ingredientId`, `ingredientName`, `caloriePerUnit`, `proteinPerUnit`, `fatPerUnit`, `carbPerUnit`) VALUES
+INSERT INTO `ingredients` (`ingredientId`, `ingredientName`, `caloriesPer100g`, `proteinPer100g`, `fatPer100g`, `carbPer100g`) VALUES
 (1, 'almonds', 56.77, 1.57, 4.29, 18.15),
 (2, 'banana', 121.43, 5.03, 8.04, 14.28),
 (3, 'beef', 22.49, 3.58, 9.38, 24.57),
@@ -553,11 +646,23 @@ INSERT INTO `users` (`userId`, `email`, `displayName`, `passwordHash`, `userAvat
 (22, 'user22', 'User 22', 'd23c1038532dc71d0a60a7fb3d330d7606b7520e9e5ee0ddcdb27ee1bd5bc0cd', './assets/img/avatars/user22.jpg', 0, '2025-05-25 08:10:51'),
 (23, 'user23', 'User 23', '8b807aa0505a00b3ef49e26a2ade8e31fcd6c700d1a3aeee971b49d73da8e8ff', './assets/img/avatars/user23.jpg', 0, '2025-05-25 08:10:51'),
 (24, 'user24', 'User 24', 'fc8a9296208a0b281f84690423c5d77785e493f435e6292cc322840f543729d3', './assets/img/avatars/user24.jpg', 0, '2025-05-25 08:10:51'),
-(25, 'user25', 'User 25', '0b544d6d8da1d1af25318e97e0ac5f6bc70bba49919463dc0074ede01a49d381', './assets/img/avatars/user25.jpg', 0, '2025-05-25 08:10:51');
+(25, 'user25', 'User 25', '0b544d6d8da1d1af25318e97e0ac5f6bc70bba49919463dc0074ede01a49d381', './assets/img/avatars/user25.jpg', 0, '2025-05-25 08:10:51'),
+(27, 'Huyphung123@gmail.com', 'huyphung123', '$2y$10$J/2DLB/6BeyFCp/3JX1VbO0VHjeh7wqId7SHBriA7MDJEpkoPlKKK', './assets/img/avatars/default.jpg', 0, '2025-06-01 10:49:22'),
+(28, 'huyphung1234@gmail.com', 'huyPhung1234', '$2y$10$YXezeoD1yefNw8KzR27ChOP43tc/epfIUB2GeTRyg.ksQXYxMxO2G', './assets/img/avatars/default.jpg', 0, '2025-06-01 11:05:43'),
+(29, 'Huyphung12345@gmail.com', 'HuyHuy123', '$2y$10$FMtjOW.ZO/.cFfoSZiA0munWCfLa0l1/pEEzO4g46RxLGlbAJf/8W', './assets/img/avatars/default.jpg', 0, '2025-06-01 16:46:40'),
+(30, 'Huyphung234@gmail.com', 'Huyphung234', '$2y$10$wwVCDJ9huosdkIFWlgg3..SVnMT8GUsDbB2XzalUp1baIwKVRST/.', './assets/img/avatars/default.jpg', 0, '2025-06-02 01:30:35'),
+(31, 'Huyphung234567@gmail.com', 'Huyphung1234123', '$2y$10$xpWDSwt.oEecT6s1oVZxmO1Km6/Pl4DkliYAAHTrlJA1rgpT2XQRy', './assets/img/avatars/default.jpg', 0, '2025-06-02 09:00:33'),
+(32, 'huy123@gmail.com', 'HuyPhung1231234', '$2y$10$recXQr42FFPvcOjf4vKkGegfZjNTg912C8Q4pUrJiuy6/lJ8jlxHS', './assets/img/avatars/default.jpg', 0, '2025-06-02 11:30:49');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `allergen`
+--
+ALTER TABLE `allergen`
+  ADD PRIMARY KEY (`allergenId`);
 
 --
 -- Indexes for table `categories`
@@ -571,6 +676,13 @@ ALTER TABLE `categories`
 ALTER TABLE `categorydish`
   ADD PRIMARY KEY (`categoryId`,`dishId`),
   ADD KEY `dishId` (`dishId`);
+
+--
+-- Indexes for table `dishallergen`
+--
+ALTER TABLE `dishallergen`
+  ADD PRIMARY KEY (`dishId`,`allergenId`),
+  ADD KEY `allergenId` (`allergenId`);
 
 --
 -- Indexes for table `dishes`
@@ -629,6 +741,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `allergen`
+--
+ALTER TABLE `allergen`
+  MODIFY `allergenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -650,7 +768,7 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
@@ -662,6 +780,13 @@ ALTER TABLE `users`
 ALTER TABLE `categorydish`
   ADD CONSTRAINT `categorydish_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`categoryId`) ON DELETE CASCADE,
   ADD CONSTRAINT `categorydish_ibfk_2` FOREIGN KEY (`dishId`) REFERENCES `dishes` (`dishId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `dishallergen`
+--
+ALTER TABLE `dishallergen`
+  ADD CONSTRAINT `dishallergen_ibfk_1` FOREIGN KEY (`dishId`) REFERENCES `dishes` (`dishId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `dishallergen_ibfk_2` FOREIGN KEY (`allergenId`) REFERENCES `allergen` (`allergenId`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `dishingredient`

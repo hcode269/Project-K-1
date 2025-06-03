@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $confirmPassword = $_POST['confirm_password'] ?? '';
 
 
-  // 1. Kiểm tra email đã tồn tại
+
   if (!isset($errors['email'])) {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 
-  // 2. Kiểm tra displayName đã tồn tại
   if (!isset($errors['displayName'])) {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE displayName = ?");
     $stmt->execute([$displayName]);
@@ -28,14 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 
-  // 3. Thêm người dùng mới vào cơ sở dữ liệu
   if (empty($errors)) {
     $passwordHash = password_hash($password, PASSWORD_BCRYPT);
     $avatarPath = './assets/img/avatars/default.jpg';
     $stmt = $pdo->prepare("INSERT INTO users (email, displayName, passwordHash, userAvatar, isAdmin)
                        VALUES (?, ?, ?, ?, 0)");
     $stmt->execute([$email, $displayName, $passwordHash, $avatarPath]);
-    header("Location: login.php?success=1"); // Chuyển hướng đến trang đăng nhập sau khi tạo tài khoản thành công
+    header("Location: login.php?success=1"); 
     exit;
   }
 }
@@ -97,22 +95,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               type="text"
               placeholder="Email Address" />
           </div>
-          <?php if (!empty($errors['email'])): ?>
+           <?php if (!empty($errors['email'])): ?>
             <div class="notice-error show" id="php-email-error">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation">
                 <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-              </svg><?= $errors['email'] ?>
+              </svg><span class="error-text"><?= $errors['email'] ?></span>
             </div>
           <?php endif; ?>
 
           <div class="box-dpname">
             <input class="box-dpname__input" name="displayName" type="text" placeholder="Display Name" />
           </div>
-          <?php if (!empty($errors['displayName'])): ?>
+         <?php if (!empty($errors['displayName'])): ?>
             <div class="notice-error show" id="php-displayname-error">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation">
                 <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-              </svg><?= $errors['displayName'] ?>
+              </svg><span class="error-text"><?= $errors['displayName'] ?></span>
             </div>
           <?php endif; ?>
 

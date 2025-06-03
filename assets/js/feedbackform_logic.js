@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         input.style.border = "2px solid red";
         isValid = false;
       } else {
-        input.style.border = "2px solid var(--primary-color)";
+        input.style.border = "2px solid black";
       }
     });
 

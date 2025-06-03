@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation">
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24v112c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zm-32 232a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
         </svg>
-        Please enter your email address using the format name@example.com
+         <span class="error-text">Please enter your email address using the format name@example.com</span>
       `;
       emailError.classList.add("show");
       return false;
@@ -111,10 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const regex = /^[a-zA-Z0-9 _\-]+$/;
     if (!regex.test(value)) {
       nameError.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation" style="width: 1em; height: 1em; margin-right: 6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation">
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
         </svg>
-        Display name must not contain special characters.
+        <span class="error-text">Display name must not contain special characters.</span>
       `;
       nameError.classList.add("show");
       return false;
@@ -140,9 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (value !== password.value.trim()) {
       confirmError.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation" style="width: 1em; height: 1em; margin-right: 6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-circle-exclamation">
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-        </svg>Passwords do not match.`;
+        </svg><span class="error-text">Passwords do not match.</span>`;
       confirmError.classList.add("show");
       return false;
     }
