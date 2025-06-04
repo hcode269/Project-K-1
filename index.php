@@ -32,22 +32,27 @@ try {
 
 $success = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $email = $_SESSION['email'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'submit_feedback') {
+  header('Content-Type: application/json');
+
+  $userId = $_SESSION['user_id'] ?? null;
+  $email = $_SESSION['email'] ?? '';
   $message = trim($_POST['message'] ?? '');
   $rating = (int) ($_POST['rating'] ?? 0);
 
-  if (!empty($message) && $rating > 0) {
+  if ($userId && $email && !empty($message) && $rating > 0) {
     try {
-      $stmt = $pdo->prepare("INSERT INTO feedback (email, message, rating) VALUES (?, ?, ?)");
-      $stmt->execute([$email, $message, $rating]);
-      $success = "Feedback submitted successfully!";
+      $stmt = $pdo->prepare("INSERT INTO feedback (userId, email, message, rating) VALUES (?, ?, ?, ?)");
+      $stmt->execute([$userId, $email, $message, $rating]);
+
+      echo json_encode(['success' => true, 'message' => 'Feedback submitted successfully!']);
     } catch (PDOException $e) {
-      $error = "Error: " . $e->getMessage();
+      echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
     }
   } else {
-    $error = "Please provide a message and a valid rating.";
+    echo json_encode(['success' => false, 'message' => 'Please provide a message and a valid rating.']);
   }
+  exit;
 }
 
 ?>
@@ -301,50 +306,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
           <!-- KHối form bên phải -->
           <div class="feedbackform__form">
-            <form action="#!">
+            <form id="feedback-form" action="#!">
               <!-- NAME -->
               <div class="feedbackform__formname">
-                <p class="feedbackform__formname--label">Name</p>
+                <label class="feedbackform-label">Name *</label>
                 <input
                   style="opacity: 0.8;"
-                  class="feedbackform__formname--area"
+                  class="feedbackform--area"
                   type="text"
-                  value="<?php echo htmlspecialchars($_SESSION['displayName']); ?>" readonly disabled required />
+                  name="name"
+                  placeholder="Enter your name"
+                  value="<?php echo htmlspecialchars($_SESSION['displayName']); ?>"
+                  readonly disabled required />
 
               </div>
               <!-- EMAIL -->
               <div class="feedbackform__formemail">
-                <p class="feedbackform__formname--label">Email Address *</p>
+                <label for="feedback-email" class="feedbackform-label">Email Address *</label>
                 <input
                   style="opacity: 0.8;"
-                  class="feedbackform__formname--area"
+                  class="feedbackform--area"
+                  id="feedback-email"
                   type="text"
+                  name="email"
+                  placeholder="Enter your email address"
                   value="<?php echo htmlspecialchars($_SESSION['email']); ?>"
                   readonly disabled required />
               </div>
               <!-- Phonenumber -->
               <div class="feedbackform__formphone">
-                <p class="feedbackform__formname--label">Phone Number</p>
+                <label for="feedback-phone" class="feedbackform-label">Phone Number *</label>
                 <input
-                  class="feedbackform__formname--area"
+                  class="feedbackform--area"
                   type="tel"
-                  name="phone"
-                  required
-                  pattern="[0-9]{10}" />
+                  id="feedback-phone"
+                  placeholder="Enter your phone number"
+                  name="tel"
+                  required />
               </div>
+              <div id="phone-error" class="error-message"></div>
               <!-- MESSAGE -->
               <div class="feedbackform__formmessage">
-                <p class="feedbackform__formname--label">Message*</p>
+                <label class="feedbackform-label">Message*</label>
                 <textarea
                   name="message"
-                  id="message"
+                  id="feedback-message"
                   rows="5"
                   cols="50"
-                  class="feedbackform__formname--message"
+                  class="feedbackform--message"
                   required></textarea>
               </div>
               <div class="feedbackform__formrate">
-                <p class="feedbackform__formname--label">Rating</p>
+                <label class="feedbackform-label">Rating</label>
                 <div class="star-rating" id="rating">
                   <span class="star" data-value="1">&#9733;</span>
                   <span class="star" data-value="2">&#9733;</span>
@@ -352,10 +365,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <span class="star" data-value="4">&#9733;</span>
                   <span class="star" data-value="5">&#9733;</span>
                 </div>
+                <input type="hidden" name="rating" id="rating-value" value="0" />
               </div>
+              <div id="rating-error" class="error-message"></div>
               <button type="submit" class="feedbackform__btnsubmit">
                 SEND MESSAGE
               </button>
+              <!-- <div id="feedback-response" style="display: none;"></div> -->
             </form>
           </div>
         </div>

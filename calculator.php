@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'config.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -222,7 +223,7 @@ require_once 'config.php';
       <p class="footer__content--desc">COOKIES</p>
     </div>
   </footer>
-  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/form-index.js"></script>
   <script src="./assets/js/additem.js"></script>
   <script src="./assets/js/delitem.js"></script>
 </body>

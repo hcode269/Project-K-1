@@ -237,6 +237,7 @@ require_once 'config.php';
       <p class="footer__content--desc">COOKIES</p>
     </div>
   </footer>
+  <script src="./assets/js/form-index.js"></script>
 </body>
 
 </html>
